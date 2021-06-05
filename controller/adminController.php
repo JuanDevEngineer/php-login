@@ -3,14 +3,17 @@
 require_once './core/View.php';
 require_once 'model/User.php';
 
+require_once 'controller.php';
+
 session_start();
 
-class Admin extends Controller {
+class Admin {
 
     protected $user;
+    protected $view;
 
     public function __construct() {
-        parent::__construct();
+        $this->view = new View();
         $this->user = new User();
     }
 
@@ -55,7 +58,7 @@ class Admin extends Controller {
         if(isset($_SESSION["nombre"]) && isset($_SESSION["apellido"])) {
             unset($_SESSION["nombre"]);
             unset($_SESSION["apellido"]);
-            $this->redirect('admin/login');
+            Controller::redirect('admin/login');
         }
     }
 
