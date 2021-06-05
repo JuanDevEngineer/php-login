@@ -5,7 +5,7 @@ require_once 'model/User.php';
 
 session_start();
 
-class admin extends Controller {
+class Admin extends Controller {
 
     protected $user;
 

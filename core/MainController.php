@@ -25,7 +25,7 @@ class MainController {
         }
         echo "<br>";
         echo $controller  = __DIR__."/controller/" . $url[0] . "Controller.php";
-        $controller  = "controller/" . $url[0] . "Controller.php";
+        $controller  = __DIR__."/controller/" . $url[0] . "Controller.php";
 
         // controlador a llamar
         if (file_exists($controller)) {
