@@ -2,6 +2,6 @@
 
 class Config {
     
-    public static $BASE_URL = "http://localhost/test/";
+    public static $BASE_URL = __DIR__."/";
 
 }
