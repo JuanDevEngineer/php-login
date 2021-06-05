@@ -2,6 +2,5 @@
 
 class Config {
     
-    public static $BASE_URL = dirname(__DIR__)."/";
-
+    public static $BASE_URL = "https://test-mille.herokuapp.com/";
 }
