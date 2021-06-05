@@ -8,8 +8,8 @@ const checkdatos = document.querySelector("#checkdatos")
 
 // evento de incial
 window.addEventListener("DOMContentLoaded", function () {
-    getRememberLoginLocalStorage()
     if(formLogin || checkdatos) {
+        getRememberLoginLocalStorage()
         formLogin.addEventListener("submit", login)
         checkdatos.addEventListener("change", rememberLogin)
     }
