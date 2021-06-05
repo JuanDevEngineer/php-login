@@ -29,7 +29,7 @@ function login(e) {
         return false;
     }
 
-    http.open("POST", "/test/admin/signIn", true)
+    http.open("POST", "/admin/signIn", true)
     http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 
     http.onreadystatechange = function() { 
@@ -39,7 +39,7 @@ function login(e) {
                 alert('ingresando')
             }
             setTimeout(() => {
-                window.location.href = "/test/app/home"
+                window.location.href = "/app/home"
             }, 3000)
         }
     }
@@ -64,7 +64,7 @@ function registrar(e) {
         return false
     }
 
-    http.open("POST", "/test/admin/signUp", true)
+    http.open("POST", "/admin/signUp", true)
     http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 
     http.onreadystatechange = function() { 
@@ -74,7 +74,7 @@ function registrar(e) {
                 alert(resp.message)
             }
             setTimeout(() => {
-                window.location.href = "/test/admin/login"
+                window.location.href = "/admin/login"
             }, 3000)
         }
     }
