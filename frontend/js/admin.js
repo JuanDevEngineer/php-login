@@ -1,4 +1,7 @@
 // variables
+const url = "/test"
+// const url = ""
+
 const formLogin = document.querySelector("#form-login")
 const formRegister = document.querySelector("#form-register")
 const checkdatos = document.querySelector("#checkdatos")
