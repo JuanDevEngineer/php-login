@@ -22,9 +22,9 @@ class MainController {
             return false;
         }
         echo "<br>";
-        echo $controller  = "/controller/" . $url[0] . "Controller.php";
+        echo $controller  = "controller/" . $url[0] . "Controller.php";
         echo "<br>";
-        $controller  = "/controller/" . $url[0] . "Controller.php";
+        $controller  = "controller/" . $url[0] . "Controller.php";
 
         // controlador a llamar
         if (file_exists($controller)) {
