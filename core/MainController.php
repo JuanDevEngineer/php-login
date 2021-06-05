@@ -15,8 +15,6 @@ class MainController {
         echo $url[0];
         echo "<br>";
         echo $url[1];
-        echo "<br>";
-        echo $url[2];
         
         // redirecciona la ruta - al ingresar a la app y la url no esta ingresada
         if (empty($url[0])) {
@@ -25,6 +23,7 @@ class MainController {
         }
         echo "<br>";
         echo $controller  = __DIR__."/controller/" . $url[0] . "Controller.php";
+        echo "<br>";
         $controller  = __DIR__."/controller/" . $url[0] . "Controller.php";
 
         // controlador a llamar
