@@ -2,21 +2,25 @@
 
 require_once './core/View.php';
 
+require_once 'controller.php';
+
 if(!isset($_SESSION)){
     session_start();
 }
 
-class App extends Controller {
+class App {
+
+    protected $view;
 
     public function __construct() {
-        parent::__construct();
+        $this->view = new View();
     }
 
     public function home() {
-        if($this->session()) {
+        if(Controller::session()) {
             $this->view->render('admin/home');
         } else {
-            $this->redirect("admin/login");
+            Controller::redirect("admin/login");
         }
     }
 }

@@ -5,7 +5,9 @@ require_once 'model/User.php';
 
 require_once 'controller.php';
 
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 
 class Admin {
 
