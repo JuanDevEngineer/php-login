@@ -2,6 +2,6 @@
 
 class Config {
     
-    public static $BASE_URL = dirname(__FILE__)."/";
+    public static $BASE_URL = dirname(__DIR__)."/";
 
 }
