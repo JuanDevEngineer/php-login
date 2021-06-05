@@ -29,8 +29,6 @@ class MainController {
             // metodo a cargar
             if (isset($url[1])) {
 
-                echo
-
                 // validamos que exista el metodo dentro de la clase controlador
                 if (method_exists($app, $url[1])) {
 
