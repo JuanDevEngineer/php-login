@@ -11,21 +11,14 @@ class MainController {
 
     public function App() {
         $url = $this->getUrl();
-
-        echo $url[0];
-        echo "<br>";
-        echo $url[1];
-        
+    
         // redirecciona la ruta - al ingresar a la app y la url no esta ingresada
         if (empty($url[0])) {
             header("Location:" . Config::$BASE_URL . "admin/login");
             return false;
         }
-        echo "<br>";
-        echo $controller  = "controller/" . $url[0] . "Controller.php";
-        echo "<br>";
-        $controller  = "controller/" . $url[0] . "Controller.php";
 
+        $controller  = "controller/" . $url[0] . "Controller.php";
         // controlador a llamar
         if (file_exists($controller)) {
 
