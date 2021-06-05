@@ -17,8 +17,8 @@ class MainController {
             header("Location:" . Config::$BASE_URL . "admin/login");
             return false;
         }
-        echo $controller  = 'controller/' . $url[0] . 'Controller.php';
-        $controller  = 'controller/' . $url[0] . 'Controller.php';
+        echo $controller  = './controller/' . $url[0] . 'Controller.php';
+        $controller  = './controller/' . $url[0] . 'Controller.php';
 
         // controlador a llamar
         if (file_exists($controller)) {
@@ -28,6 +28,8 @@ class MainController {
 
             // metodo a cargar
             if (isset($url[1])) {
+
+                echo
 
                 // validamos que exista el metodo dentro de la clase controlador
                 if (method_exists($app, $url[1])) {
