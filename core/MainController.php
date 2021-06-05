@@ -17,6 +17,7 @@ class MainController {
             header("Location:" . Config::$BASE_URL . "admin/login");
             return false;
         }
+        echo $controller  = 'controller/' . $url[0] . 'Controller.php';
         $controller  = 'controller/' . $url[0] . 'Controller.php';
 
         // controlador a llamar
