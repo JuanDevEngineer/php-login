@@ -41,9 +41,16 @@ function login(e) {
             if(resp.status == 'success') {
                 alert('ingresando')
             }
+            
+            if(resp.status == 'error') {
+                alert(resp.error)
+                return false
+            }
+
             setTimeout(() => {
                 window.location.href = "/app/home"
             }, 3000)
+
         }
     }
     http.send(`nombre=${nombre.toLowerCase()}&apellido=${apellido.toLowerCase()}`)
