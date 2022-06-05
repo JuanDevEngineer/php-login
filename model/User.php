@@ -66,11 +66,4 @@ class User extends Model {
             echo "error" . $e->getMessage();
         }       
     }
-
-
 }
-
-// $model = new User();
-// $res = $model->registrar("carlos", "cuadros", "123");
-
-// var_dump($res);
