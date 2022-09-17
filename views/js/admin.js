@@ -1,6 +1,5 @@
 // variables
-const url = '/test';
-// const url = ""
+const URL = '/test';
 
 const formLogin = document.querySelector('#form-login');
 const formRegister = document.querySelector('#form-register');
@@ -19,9 +18,9 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 // funciones
-function login(e) {
+async function login(e) {
   e.preventDefault();
-  const http = new XMLHttpRequest();
+  const formData = new FormData();
 
   const nombre = document.getElementById('nombre').value;
   const apellido = document.getElementById('apellido').value;
@@ -31,34 +30,33 @@ function login(e) {
     return false;
   }
 
-  http.open('POST', url + '/sign-in', true);
-  http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  formData.append('nombre', nombre);
+  formData.append('apellido', apellido);
 
-  http.onreadystatechange = function () {
-    if (this.readyState === http.DONE && this.status === 200) {
-      const resp = JSON.parse(http.responseText);
-      if (resp.status == 'success') {
-        alert('ingresando');
-      }
+  const response = await fetch(`${URL}/sign-in`, {
+    method: 'POST',
+    body: formData,
+  });
+  const data = await response.json();
 
-      if (resp.status == 'error') {
-        alert(resp.error);
-        return false;
-      }
+  if (data.status == 'success') {
+    alert('ingresando');
+    setTimeout(() => {
+      window.location.href = '/test/admin/home';
+    }, 1000);
 
-      setTimeout(() => {
-        window.location.href = '/test/admin/home';
-      }, 2000);
-    }
-  };
-  http.send(
-    `nombre=${nombre.toLowerCase()}&apellido=${apellido.toLowerCase()}`,
-  );
+    return;
+  }
+
+  if (data.status == 'error') {
+    alert(data.error);
+    return false;
+  }
 }
 
-function registrar(e) {
+async function registrar(e) {
   e.preventDefault();
-  const http = new XMLHttpRequest();
+  const formData = new FormData();
 
   const nombrer = document.getElementById('nombrer').value;
   const apellidor = document.getElementById('apellidor').value;
@@ -73,21 +71,25 @@ function registrar(e) {
     return false;
   }
 
-  http.open('POST', url + '/sign-up', true);
-  http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  formData.append('nombre', nombrer);
+  formData.append('apellido', apellidor);
+  formData.append('password', passr);
 
-  http.onreadystatechange = function () {
-    if (this.readyState === http.DONE && this.status === 200) {
-      const resp = JSON.parse(http.responseText);
-      if (resp.status == 'success') {
-        alert(resp.message);
-      }
-      setTimeout(() => {
-        window.location.href = '/test/login';
-      }, 2000);
-    }
-  };
-  http.send(`nombre=${nombrer}&apellido=${apellidor}&password=${passr}`);
+  const response = await fetch(`${URL}/sign-up`, {
+    method: 'POST',
+    body: formData,
+  });
+
+  const data = await response.json();
+
+  console.log(data);
+
+  if (data.status == 'success') {
+    alert(data.message);
+  }
+  setTimeout(() => {
+    window.location.href = '/test/login';
+  }, 1000);
 }
 
 function rememberLogin() {
