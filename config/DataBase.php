@@ -26,11 +26,12 @@ class DataBase
   /* Private construct that can only be accessed from within this class */
   private function __construct()
   {
-    $this->host = "localhost:33065";
-    $this->db = "prueba-admin";
-    $this->user = "root";
-    $this->pass = "";
-    $this->charset = "utf8mb4";
+    $this->host = $_ENV["DATA_BASE_HOST"] ?? "localhost:33065";
+    $this->db = $_ENV["DATA_BASE_DB"] ?? "prueba-admin";
+    $this->user = $_ENV["DATA_BASE_USER"] ?? "root";
+    $this->pass = $_ENV["DATA_BASE_PASS"] ?? "";
+    $this->charset = $_ENV["DATA_BASE_CHARSET"] ?? "utf8mb4";
+
     $this->createConnection();
   }
 

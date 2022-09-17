@@ -17,6 +17,7 @@ class Base
 
   public static function redirect(string $url)
   {
-    header("location:" . 'http://localhost/test' . $url);
+    $base_url = Config::getBaseUrl() ?? 'http://localhost/test';
+    header("location:" . $base_url . $url, true);
   }
 }

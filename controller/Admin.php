@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Core\View;
+use Daos\UserImpl;
 use Models\User;
 use Services\UserServiceImpl;
 
@@ -16,7 +17,7 @@ class Admin
 
   public function __construct()
   {
-    $this->userService = new UserServiceImpl();
+    $this->userService = new UserServiceImpl(new UserImpl());
   }
 
   public static function loginView()

@@ -8,7 +8,7 @@ class Config
 
   function __construct()
   {
-    self::$base_url = getenv('BASE_URL');
+    self::$base_url = getenv('BASE_URL') ?? 'http://localhost/test';
   }
 
   public static function getBaseUrl()
