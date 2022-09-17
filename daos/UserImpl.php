@@ -58,7 +58,7 @@ class UserImpl extends Model implements User
 
         // realizamos el sql de insercion
         $sql = "INSERT INTO `usuarios` (nombre, apellido, password) 
-                        VALUES('$user->getName()', '$user->getLastname()', '$password_hash')";
+                        VALUES('{$user->getName()}', '{$user->getLastname()}', '$password_hash')";
 
         // preparamos la consulta
         $stmt = $this->con->getConnection()->prepare($sql);
