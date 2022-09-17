@@ -8,20 +8,20 @@ use Services\UserService;
 
 class UserServiceImpl implements UserService
 {
-  private $userRepository;
+  private $userDao;
 
   public function __construct()
   {
-    $this->userRepository = new UserImpl();
+    $this->userDao = new UserImpl();
   }
 
   public function login($name, $lastname)
   {
-    return $this->userRepository->login($name, $lastname);
+    return $this->userDao->login($name, $lastname);
   }
 
   public function register(User $user)
   {
-    return $this->userRepository->register($user);
+    return $this->userDao->register($user);
   }
 }
