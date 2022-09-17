@@ -1,0 +1,5 @@
+.vscode
+
+/vendor/
+.env
+login-admin.sql

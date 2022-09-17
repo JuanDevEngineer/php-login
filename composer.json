@@ -1,0 +1,25 @@
+{
+  "name": "arthurdev/test-login",
+  "description": "Refactor login app",
+  "authors": [
+    {
+      "name": "Juan Jose Restrepo Cuadros",
+      "email": "cuadrosc99@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "bramus/router": "~1.6",
+    "vlucas/phpdotenv": "5.4.x-dev"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Controllers\\": "./controller/",
+      "Models\\": "./models/",
+      "Services\\": "./services/",
+      "Daos\\": "./daos/",
+      "Core\\": "./core/",
+      "Config\\": "./config/"
+    }
+  }
+}
